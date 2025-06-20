@@ -17,9 +17,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from './dropdown-menu';
+import { Auth } from '@/types';
 
 export function DashboardHeader() {
-  const { auth } = usePage().props as any;
+  const auth = usePage().props.auth as Auth;
   const [isDark, setIsDark] = React.useState(false);
 
   const toggleTheme = () => {
