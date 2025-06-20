@@ -18,6 +18,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Auth } from '@/types';
 
 interface NavigationItem {
   name: string;
@@ -125,7 +126,9 @@ interface NavigationProps {
 }
 
 export function Navigation({ className, collapsed = false }: NavigationProps) {
-  const { url, auth } = usePage().props as any;
+  const props = usePage().props;
+  const url = props.url as string;
+  const auth = props.auth as Auth;
   const [expandedItems, setExpandedItems] = React.useState<string[]>([]);
 
   const toggleExpanded = (itemName: string) => {
@@ -143,7 +146,7 @@ export function Navigation({ className, collapsed = false }: NavigationProps) {
   };
 
   const renderNavigationItem = (item: NavigationItem, level = 0) => {
-    // Skip rendering items that require an admin role if user isn't admin
+    // Skip rendering items that require an admin role if the user isn't admin
     if (item.role === 'admin' && auth?.user?.role !== 'admin') {
       return null;
     }

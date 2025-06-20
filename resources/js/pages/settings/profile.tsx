@@ -20,6 +20,8 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 type ProfileForm = {
+    name: string;
+    full_name: string;
     first_name: string;
     middle_name: string;
     last_name: string;
@@ -32,13 +34,15 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
     const { auth } = usePage<SharedData>().props;
 
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm<Required<ProfileForm>>({
-        email: auth.user.email,
+        name: auth.user.name,
+        full_name: auth.user.full_name,
         first_name: auth.user.first_name,
         middle_name: auth.user.middle_name,
         last_name: auth.user.last_name,
+        email: auth.user.email,
         phone: auth.user.phone,
         birthday: auth.user.birthday,
-    });
+});
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();

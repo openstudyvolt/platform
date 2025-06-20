@@ -22,7 +22,7 @@ type RegisterForm = {
 };
 
 export default function Register() {
-    const { data, setData, post, processing, errors, reset } = useForm<Required<RegisterForm>>({
+    const { data, setData, post, processing, errors, reset } = useForm<Partial<RegisterForm>>({
         first_name: '',
         middle_name: '',
         last_name: '',
