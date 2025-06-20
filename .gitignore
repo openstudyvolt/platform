@@ -22,3 +22,9 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+bootstrap/cache/
+composer.lock
+package-lock.json
+storage/framework/
+storage/logs/
