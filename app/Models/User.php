@@ -73,4 +73,10 @@ class User extends Authenticatable
 
         return Arr::join([$this->first_name, $this->last_name], ' ');
     }
+
+    /** @noinspection PhpUnused */
+    public function getNameAttribute(): string
+    {
+        return $this->getFullNameAttribute();
+    }
 }

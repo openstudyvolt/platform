@@ -31,6 +31,22 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
 
+        // If user still has name column instead of first/last name, migrate the data
+        $user = Auth::user();
+        if (isset($user->name) && (!$user->first_name || !$user->last_name)) {
+            $nameParts = explode(' ', $user->name);
+            if (count($nameParts) >= 2) {
+                $firstName = array_shift($nameParts);
+                $lastName = array_pop($nameParts);
+                $middleName = count($nameParts) > 0 ? implode(' ', $nameParts) : null;
+
+                $user->first_name = $firstName;
+                $user->middle_name = $middleName;
+                $user->last_name = $lastName;
+                $user->save();
+            }
+        }
+
         $request->session()->regenerate();
 
         return redirect()->intended(route('dashboard', absolute: false));
