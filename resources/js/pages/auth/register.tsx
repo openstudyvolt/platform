@@ -11,7 +11,11 @@ import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/auth-layout';
 
 type RegisterForm = {
-    name: string;
+    first_name: string;
+    middle_name: string;
+    last_name: string;
+    phone: string;
+    birthday: string;
     email: string;
     password: string;
     password_confirmation: string;
@@ -19,7 +23,11 @@ type RegisterForm = {
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm<Required<RegisterForm>>({
-        name: '',
+        first_name: '',
+        middle_name: '',
+        last_name: '',
+        phone: '',
+        birthday: '',
         email: '',
         password: '',
         password_confirmation: '',
