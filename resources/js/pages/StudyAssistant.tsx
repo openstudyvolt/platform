@@ -3,7 +3,7 @@ import { DashboardLayout } from '@/components/ui/dashboard-layout';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { Upload, FileText, Link2, History, Save, Download, Bot } from 'lucide-react';
+import { Upload, Link2, History, Save, Download, Bot } from 'lucide-react';
 
 export default function StudyAssistant() {
   const [inputText, setInputText] = React.useState('');

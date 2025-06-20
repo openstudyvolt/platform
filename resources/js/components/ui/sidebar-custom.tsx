@@ -21,7 +21,7 @@ export function Sidebar({ collapsed = false, onToggle, className }: SidebarProps
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-800">
         {!collapsed && (
-          <Link href="/dashboard" className="flex items-center gap-2">
+          <Link href={route('dashboard')} className="flex items-center gap-2">
             <div className="h-8 w-8 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
               <span className="text-white font-bold text-sm">SV</span>
             </div>
