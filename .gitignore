@@ -28,4 +28,3 @@ composer.lock
 package-lock.json
 storage/framework/
 storage/logs/
-*lock*
