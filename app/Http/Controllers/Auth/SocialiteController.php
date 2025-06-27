@@ -57,6 +57,7 @@ class SocialiteController extends Controller
                         'first_name' => $nameParts['first_name'],
                         'middle_name' => $nameParts['middle_name'],
                         'last_name' => $nameParts['last_name'],
+                        'username' => Str::slug($socialUser->getNickname() ?? Str::before($socialUser->getEmail(), '@')),
                         'email' => $socialUser->getEmail(),
                         'password' => Hash::make(Str::random(24)),
                         'provider' => $provider,

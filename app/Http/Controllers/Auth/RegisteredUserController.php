@@ -36,6 +36,7 @@ class RegisteredUserController extends Controller
             'first_name' => $data['first_name'],
             'middle_name' => $data['middle_name'] ?? null,
             'last_name' => $data['last_name'],
+            'username' => $data['username'],
             'email' => $data['email'],
             'phone' => $data['phone'] ?? null,
             'birthday' => $data['birthday'] ?? null,

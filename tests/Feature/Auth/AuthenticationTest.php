@@ -12,7 +12,19 @@ test('users can authenticate using the login screen', function () {
     $user = User::factory()->create();
 
     $response = $this->post('/login', [
-        'email' => $user->email,
+        'login' => $user->email,
+        'password' => 'password',
+    ]);
+
+    $this->assertAuthenticated();
+    $response->assertRedirect(route('dashboard', absolute: false));
+});
+
+test('users can authenticate using their username', function () {
+    $user = User::factory()->create(['username' => 'johndoe']);
+
+    $response = $this->post('/login', [
+        'login' => 'johndoe',
         'password' => 'password',
     ]);
 
@@ -24,7 +36,7 @@ test('users can not authenticate with invalid password', function () {
     $user = User::factory()->create();
 
     $this->post('/login', [
-        'email' => $user->email,
+        'login' => $user->email,
         'password' => 'wrong-password',
     ]);
 
@@ -44,7 +56,7 @@ test('remember me sets recaller cookie', function () {
     $user = User::factory()->create();
 
     $response = $this->post('/login', [
-        'email' => $user->email,
+        'login' => $user->email,
         'password' => 'password',
         'remember' => true,
     ]);
@@ -53,4 +65,32 @@ test('remember me sets recaller cookie', function () {
 
     $recallerName = \Illuminate\Support\Facades\Auth::getRecallerName();
     $response->assertCookie($recallerName);
+});
+
+test('API users can authenticate with email', function () {
+    $user = User::factory()->create();
+
+    $response = $this->postJson('/api/login', [
+        'login' => $user->email,
+        'password' => 'password',
+    ]);
+
+    $response->assertOk()->assertJsonStructure([
+        'token',
+        'user',
+    ]);
+});
+
+test('API users can authenticate with username', function () {
+    $user = User::factory()->create(['username' => 'janedoe']);
+
+    $response = $this->postJson('/api/login', [
+        'login' => 'janedoe',
+        'password' => 'password',
+    ]);
+
+    $response->assertOk()->assertJsonStructure([
+        'token',
+        'user',
+    ]);
 });
