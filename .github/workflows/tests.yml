@@ -21,9 +21,10 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.4
+          php-version: 8.3
           tools: composer:v2
           coverage: xdebug
+          extensions: pdo_sqlite, dom, xml
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -32,10 +33,17 @@ jobs:
           cache: 'npm'
 
       - name: Install Node Dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build Assets
         run: npm run build
+
+      - name: Prepare storage directories
+        run: |
+          mkdir -p bootstrap/cache
+          mkdir -p storage/framework/cache/data
+          mkdir -p storage/framework/sessions
+          mkdir -p storage/framework/views
 
       - name: Install Dependencies
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
