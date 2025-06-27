@@ -147,7 +147,7 @@ export function Navigation({ className, collapsed = false }: NavigationProps) {
 
   const renderNavigationItem = (item: NavigationItem, level = 0) => {
     // Skip rendering items that require an admin role if the user isn't admin
-    if (item.role === 'admin' && auth?.user?.role !== 'admin') {
+    if (item.role === 'admin' && !auth?.user?.roles?.includes('admin')) {
       return null;
     }
 

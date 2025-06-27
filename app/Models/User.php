@@ -5,6 +5,8 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Passport\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -17,7 +19,7 @@ use function implode;
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable, SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -28,6 +30,7 @@ class User extends Authenticatable
         'first_name',
         'middle_name',
         'last_name',
+        'username',
         'email',
         'phone',
         'birthday',
@@ -97,4 +100,6 @@ class User extends Authenticatable
         $this->last_name = array_pop($nameParts);
         $this->middle_name = count($nameParts) > 0 ? implode(' ', $nameParts) : null;
     }
+
+    // Role and permission handling is provided by the HasRoles trait
 }

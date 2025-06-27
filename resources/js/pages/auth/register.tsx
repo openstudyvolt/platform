@@ -14,6 +14,7 @@ type RegisterForm = {
     first_name: string;
     middle_name: string;
     last_name: string;
+    username: string;
     phone: string;
     birthday: string;
     email: string;
@@ -26,6 +27,7 @@ export default function Register() {
         first_name: '',
         middle_name: '',
         last_name: '',
+        username: '',
         phone: '',
         birthday: '',
         email: '',
@@ -94,12 +96,28 @@ export default function Register() {
                     </div>
 
                     <div className="grid gap-2">
+                        <Label htmlFor="username">Username</Label>
+                        <Input
+                            id="username"
+                            type="text"
+                            required
+                            tabIndex={4}
+                            autoComplete="username"
+                            value={data.username}
+                            onChange={(e) => setData('username', e.target.value)}
+                            disabled={processing}
+                            placeholder="username"
+                        />
+                        <InputError message={errors.username} />
+                    </div>
+
+                    <div className="grid gap-2">
                         <Label htmlFor="email">Email address</Label>
                         <Input
                             id="email"
                             type="email"
                             required
-                            tabIndex={4}
+                            tabIndex={5}
                             autoComplete="email"
                             value={data.email}
                             onChange={(e) => setData('email', e.target.value)}
@@ -114,7 +132,7 @@ export default function Register() {
                         <Input
                             id="phone"
                             type="tel"
-                            tabIndex={5}
+                            tabIndex={6}
                             autoComplete="tel"
                             value={data.phone}
                             onChange={(e) => setData('phone', e.target.value)}
@@ -129,7 +147,7 @@ export default function Register() {
                         <Input
                             id="birthday"
                             type="date"
-                            tabIndex={6}
+                            tabIndex={7}
                             value={data.birthday}
                             onChange={(e) => setData('birthday', e.target.value)}
                             disabled={processing}
@@ -143,7 +161,7 @@ export default function Register() {
                             id="password"
                             type="password"
                             required
-                            tabIndex={7}
+                            tabIndex={8}
                             autoComplete="new-password"
                             value={data.password}
                             onChange={(e) => setData('password', e.target.value)}
@@ -159,7 +177,7 @@ export default function Register() {
                             id="password_confirmation"
                             type="password"
                             required
-                            tabIndex={8}
+                            tabIndex={9}
                             autoComplete="new-password"
                             value={data.password_confirmation}
                             onChange={(e) => setData('password_confirmation', e.target.value)}
@@ -169,7 +187,7 @@ export default function Register() {
                         <InputError message={errors.password_confirmation} />
                     </div>
 
-                    <Button type="submit" className="mt-2 w-full" tabIndex={9} disabled={processing}>
+                    <Button type="submit" className="mt-2 w-full" tabIndex={10} disabled={processing}>
                         {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
                         Create account
                     </Button>
@@ -179,7 +197,7 @@ export default function Register() {
 
                 <div className="text-center text-sm text-muted-foreground">
                     Already have an account?{' '}
-                    <TextLink href={route('login')} tabIndex={10}>
+                    <TextLink href={route('login')} tabIndex={11}>
                         Log in
                     </TextLink>
                 </div>
