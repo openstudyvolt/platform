@@ -24,7 +24,6 @@ yarn-error.log
 /.zed
 
 bootstrap/cache/
-composer.lock
 package-lock.json
 storage/framework/
 storage/logs/
