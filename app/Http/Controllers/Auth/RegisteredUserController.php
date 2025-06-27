@@ -35,6 +35,7 @@ class RegisteredUserController extends Controller
             'first_name' => 'required|string|max:255',
             'middle_name' => 'nullable|string|max:255',
             'last_name' => 'required|string|max:255',
+            'username' => 'required|string|alpha_dash|max:255|unique:users',
             'email' => 'required|string|lowercase|email|max:255|unique:users',
             'phone' => ['nullable', 'string', 'regex:/^\+[1-9]\d{1,14}$/'], // E.164 format validation
             'birthday' => 'nullable|date',
@@ -45,6 +46,7 @@ class RegisteredUserController extends Controller
             'first_name' => $request->first_name,
             'middle_name' => $request->middle_name,
             'last_name' => $request->last_name,
+            'username' => $request->username,
             'email' => $request->email,
             'phone' => $request->phone,
             'birthday' => $request->birthday,

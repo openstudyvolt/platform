@@ -38,9 +38,11 @@ export interface User {
     middle_name: string;
     last_name: string;
     name: string;
+    username: string;
     phone: string;
     birthday: string;
     email: string;
+    roles: string[];
     avatar?: string;
     email_verified_at: string | null;
     created_at: string;
