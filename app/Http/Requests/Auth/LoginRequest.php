@@ -2,17 +2,18 @@
 
 namespace App\Http\Requests\Auth;
 
+use App\Traits\UsesLoginCredentials;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-use App\Traits\UsesLoginCredentials;
 
 class LoginRequest extends FormRequest
 {
     use UsesLoginCredentials;
+
     /**
      * Determine if the user is authorized to make this request.
      */
