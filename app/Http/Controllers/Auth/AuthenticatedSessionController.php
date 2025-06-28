@@ -33,7 +33,7 @@ class AuthenticatedSessionController extends Controller
 
         // If user still has name column instead of first/last name, migrate the data
         $user = Auth::user();
-        if (isset($user->name) && (!$user->first_name || !$user->last_name)) {
+        if (isset($user->name) && (! $user->first_name || ! $user->last_name)) {
             $nameParts = explode(' ', $user->name);
             if (count($nameParts) >= 2) {
                 $firstName = array_shift($nameParts);

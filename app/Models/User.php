@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Arr;
+
 use function array_pop;
 use function array_shift;
 use function count;
@@ -49,7 +50,7 @@ class User extends Authenticatable
     ];
 
     protected $appends = [
-        'full_name', 'name'
+        'full_name', 'name',
     ];
 
     /**
@@ -70,7 +71,6 @@ class User extends Authenticatable
     /**
      * Get the user's full name.
      *
-     * @return string
      * @noinspection PhpUnused
      */
     public function getFullNameAttribute(): string
@@ -89,7 +89,7 @@ class User extends Authenticatable
     }
 
     /** @noinspection PhpUnused */
-    public function setNameAttribute(string|null $value): void
+    public function setNameAttribute(?string $value): void
     {
         $nameParts = explode(' ', $value);
 

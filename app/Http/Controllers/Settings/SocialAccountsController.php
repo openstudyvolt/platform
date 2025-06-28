@@ -27,7 +27,7 @@ class SocialAccountsController extends Controller
         }
 
         return Inertia::render('settings/social-accounts', [
-            'connectedAccounts' => $connectedAccounts
+            'connectedAccounts' => $connectedAccounts,
         ]);
     }
 
@@ -39,9 +39,9 @@ class SocialAccountsController extends Controller
         $user = $request->user();
 
         // Only allow disconnecting if the user has a password set
-        if (!$user->password) {
+        if (! $user->password) {
             return back()->withErrors([
-                'provider' => 'You cannot disconnect your only login method. Please set a password first.'
+                'provider' => 'You cannot disconnect your only login method. Please set a password first.',
             ]);
         }
 

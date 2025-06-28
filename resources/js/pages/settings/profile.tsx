@@ -42,7 +42,7 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
         email: auth.user.email,
         phone: auth.user.phone,
         birthday: auth.user.birthday,
-});
+    });
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();

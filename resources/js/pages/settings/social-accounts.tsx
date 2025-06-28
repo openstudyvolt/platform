@@ -96,11 +96,14 @@ export default function SocialAccounts({ connectedAccounts, status }: SocialAcco
     const { delete: destroy, processing } = useForm();
 
     const handleDisconnect = (provider: string): void => {
-        destroy(route('settings.social-accounts.destroy', {
-            'provider': provider,
-        }), {
-            preserveScroll: true,
-        });
+        destroy(
+            route('settings.social-accounts.destroy', {
+                provider: provider,
+            }),
+            {
+                preserveScroll: true,
+            },
+        );
     };
 
     return (
@@ -109,10 +112,7 @@ export default function SocialAccounts({ connectedAccounts, status }: SocialAcco
 
             <SettingsLayout>
                 <div className="space-y-6">
-                    <HeadingSmall
-                        title="Connected accounts"
-                        description="Manage your connected social accounts"
-                    />
+                    <HeadingSmall title="Connected accounts" description="Manage your connected social accounts" />
 
                     {connectedAccounts.length === 0 ? (
                         <div className="text-sm text-muted-foreground">
@@ -150,9 +150,7 @@ export default function SocialAccounts({ connectedAccounts, status }: SocialAcco
                     )}
 
                     {status === 'social-account-disconnected' && (
-                        <div className="mt-4 text-sm font-medium text-green-600">
-                            Social account disconnected successfully.
-                        </div>
+                        <div className="mt-4 text-sm font-medium text-green-600">Social account disconnected successfully.</div>
                     )}
                 </div>
             </SettingsLayout>
