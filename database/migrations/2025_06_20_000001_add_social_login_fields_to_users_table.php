@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', static function (Blueprint $table) {
             $table->string('provider')->nullable()->after('remember_token');
             $table->string('provider_id')->nullable()->after('provider');
             $table->string('provider_token')->nullable()->after('provider_id');
@@ -24,7 +24,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('users', static function (Blueprint $table) {
             $table->dropColumn([
                 'provider',
                 'provider_id',
