@@ -8,7 +8,7 @@ use const FILTER_VALIDATE_EMAIL;
 trait UsesLoginCredentials
 {
     /**
-     * Build credentials array using email or username.
+     * Build credentials' array using email or username.
      *
      * @param array{login:string,password:string} $data
      * @return array<string, string>
