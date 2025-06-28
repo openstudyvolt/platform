@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Traits\UsesLoginCredentials;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Traits\UsesLoginCredentials;
 
 class AuthController extends Controller
 {
     use UsesLoginCredentials;
+
     public function login(Request $request): JsonResponse
     {
         $request->validate([
