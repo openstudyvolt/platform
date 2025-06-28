@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -16,9 +15,6 @@ class SocialiteController extends Controller
 {
     /**
      * Redirect the user to the provider authentication page.
-     *
-     * @param string $provider
-     * @return RedirectResponse
      */
     public function redirect(string $provider): RedirectResponse
     {
@@ -27,9 +23,6 @@ class SocialiteController extends Controller
 
     /**
      * Handle provider callback.
-     *
-     * @param string $provider
-     * @return RedirectResponse
      */
     public function callback(string $provider): RedirectResponse
     {
@@ -38,10 +31,10 @@ class SocialiteController extends Controller
 
             // Find existing user or create a new one
             $user = User::where('provider_id', $socialUser->getId())
-                        ->where('provider', $provider)
-                        ->first();
+                ->where('provider', $provider)
+                ->first();
 
-            if (!$user) {
+            if (! $user) {
                 // Check if user with this email already exists
                 $existingUser = User::where('email', $socialUser->getEmail())->first();
 
@@ -87,16 +80,13 @@ class SocialiteController extends Controller
 
         } catch (Exception $e) {
             return redirect()->route('login')->withErrors([
-                'email' => 'Error connecting to ' . ucfirst($provider) . '. Please try again.',
+                'email' => 'Error connecting to '.ucfirst($provider).'. Please try again.',
             ]);
         }
     }
 
     /**
      * Extract first, middle, and last name from a full name string.
-     *
-     * @param string|null $fullName
-     * @return array
      */
     protected function extractNameParts(?string $fullName): array
     {
