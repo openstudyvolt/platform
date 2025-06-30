@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Notifications\VerifyEmailQueued;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,10 +17,10 @@ use function array_shift;
 use function count;
 use function implode;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable, SoftDeletes;
+    use HasFactory, Notifiable, SoftDeletes, MustVerifyEmailTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -96,5 +98,13 @@ class User extends Authenticatable
         $this->first_name = array_shift($nameParts);
         $this->last_name = array_pop($nameParts);
         $this->middle_name = count($nameParts) > 0 ? implode(' ', $nameParts) : null;
+    }
+
+    /**
+     * Send the email verification notification queued.
+     */
+    public function sendEmailVerificationNotification(): void
+    {
+        $this->notify(new VerifyEmailQueued());
     }
 }
