@@ -26,6 +26,8 @@ prompts below are written for ChatGPT Codex to implement each user story. The
 project uses Laravel 12 with Inertia and React 19. Format code with Prettier and
 keep tests in Pest.
 
+- **Forgot Password Flow**: users can request a reset link and choose a new password.
+
 ### Codex Prompt 1: Email Registration
 
 **Context**

@@ -97,4 +97,12 @@ class User extends Authenticatable
         $this->last_name = array_pop($nameParts);
         $this->middle_name = count($nameParts) > 0 ? implode(' ', $nameParts) : null;
     }
+
+    /**
+     * Send the password reset notification using our custom notification.
+     */
+    public function sendPasswordResetNotification($token): void
+    {
+        $this->notify(new \App\Notifications\ResetPasswordNotification($token));
+    }
 }
