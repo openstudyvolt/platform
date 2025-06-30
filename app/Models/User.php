@@ -97,5 +97,4 @@ class User extends Authenticatable
         $this->last_name = array_pop($nameParts);
         $this->middle_name = count($nameParts) > 0 ? implode(' ', $nameParts) : null;
     }
-
 }
