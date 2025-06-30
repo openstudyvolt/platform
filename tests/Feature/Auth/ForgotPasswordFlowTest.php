@@ -25,7 +25,7 @@ it('allows a user to reset a forgotten password', function () {
             'password' => 'new-password',
             'password_confirmation' => 'new-password',
         ])->assertRedirect(route('login'))
-          ->assertSessionHas('status');
+            ->assertSessionHas('status');
 
         return true;
     });

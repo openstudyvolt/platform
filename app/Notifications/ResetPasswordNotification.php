@@ -14,7 +14,7 @@ class ResetPasswordNotification extends ResetPasswordBase
     {
         $url = $this->resetUrl($notifiable);
 
-        return (new MailMessage())
+        return (new MailMessage)
             ->subject('Reset your password')
             ->markdown('emails.auth.reset-password', ['url' => $url]);
     }
