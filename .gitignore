@@ -23,7 +23,8 @@ yarn-error.log
 /.vscode
 /.zed
 
-bootstrap/cache/
+bootstrap/cache/*
+!bootstrap/cache/.gitkeep
 package-lock.json
 storage/framework/
 storage/logs/
