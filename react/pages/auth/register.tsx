@@ -45,10 +45,10 @@ export default function Register() {
     return (
         <AuthLayout title="Create an account" description="Enter your details below to create your account">
             <Head title="Register" />
-            <form className="flex flex-col gap-6" onSubmit={submit}>
+            <form className="flex flex-col gap-8" onSubmit={submit}>
                 <div className="grid gap-6">
                     <div className="grid gap-2">
-                        <Label htmlFor="first_name">First Name</Label>
+                        <Label htmlFor="first_name" className="text-sm mb-2">First Name</Label>
                         <Input
                             id="first_name"
                             type="text"
@@ -65,7 +65,7 @@ export default function Register() {
                     </div>
 
                     <div className="grid gap-2">
-                        <Label htmlFor="middle_name">Middle Name (optional)</Label>
+                        <Label htmlFor="middle_name" className="text-sm mb-2">Middle Name (optional)</Label>
                         <Input
                             id="middle_name"
                             type="text"
@@ -80,7 +80,7 @@ export default function Register() {
                     </div>
 
                     <div className="grid gap-2">
-                        <Label htmlFor="last_name">Last Name</Label>
+                        <Label htmlFor="last_name" className="text-sm mb-2">Last Name</Label>
                         <Input
                             id="last_name"
                             type="text"
@@ -96,7 +96,7 @@ export default function Register() {
                     </div>
 
                     <div className="grid gap-2">
-                        <Label htmlFor="username">Username</Label>
+                        <Label htmlFor="username" className="text-sm mb-2">Username</Label>
                         <Input
                             id="username"
                             type="text"
@@ -112,7 +112,7 @@ export default function Register() {
                     </div>
 
                     <div className="grid gap-2">
-                        <Label htmlFor="email">Email address</Label>
+                        <Label htmlFor="email" className="text-sm mb-2">Email address</Label>
                         <Input
                             id="email"
                             type="email"
@@ -128,7 +128,7 @@ export default function Register() {
                     </div>
 
                     <div className="grid gap-2">
-                        <Label htmlFor="phone">Phone Number (E.164 format)</Label>
+                        <Label htmlFor="phone" className="text-sm mb-2">Phone Number (E.164 format)</Label>
                         <Input
                             id="phone"
                             type="tel"
@@ -143,7 +143,7 @@ export default function Register() {
                     </div>
 
                     <div className="grid gap-2">
-                        <Label htmlFor="birthday">Birthday</Label>
+                        <Label htmlFor="birthday" className="text-sm mb-2">Birthday</Label>
                         <Input
                             id="birthday"
                             type="date"
@@ -156,7 +156,7 @@ export default function Register() {
                     </div>
 
                     <div className="grid gap-2">
-                        <Label htmlFor="password">Password</Label>
+                        <Label htmlFor="password" className="text-sm mb-2">Password</Label>
                         <Input
                             id="password"
                             type="password"
@@ -172,7 +172,7 @@ export default function Register() {
                     </div>
 
                     <div className="grid gap-2">
-                        <Label htmlFor="password_confirmation">Confirm password</Label>
+                        <Label htmlFor="password_confirmation" className="text-sm mb-2">Confirm password</Label>
                         <Input
                             id="password_confirmation"
                             type="password"
@@ -187,7 +187,7 @@ export default function Register() {
                         <InputError message={errors.password_confirmation} />
                     </div>
 
-                    <Button type="submit" className="mt-2 w-full" tabIndex={10} disabled={processing}>
+                    <Button type="submit" className="mt-6 w-full" tabIndex={10} disabled={processing}>
                         {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
                         Create account
                     </Button>
@@ -195,7 +195,7 @@ export default function Register() {
                     <SocialLoginButtons className="mt-2" />
                 </div>
 
-                <div className="text-center text-sm text-muted-foreground">
+                <div className="text-center text-base text-gray-700">
                     Already have an account?{' '}
                     <TextLink href={route('login')} tabIndex={11}>
                         Log in

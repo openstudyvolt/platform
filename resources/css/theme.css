@@ -1,0 +1,30 @@
+:root {
+  /* Colors */
+  --color-primary: #FF5A00;
+  --color-primary-dark: #FF5A00;
+  --color-secondary: #1D4ED8;
+  --color-accent: #93C5FD;
+  --color-background: #F9FAFB;
+  --color-surface: #FFFFFF;
+  --color-text-primary: #111827;
+  --color-text-secondary: #374151;
+  --color-border: #E5E7EB;
+  --color-warning: #FBBF24;
+  --color-error: #EF4444;
+  --color-success: #10B981;
+
+  /* Typography */
+  --text-h1: 1.875rem;
+  --text-h2: 1.5rem;
+  --text-base: 1rem;
+  --text-sm: 0.875rem;
+
+  /* Radius & Spacing */
+  --radius-lg: 0.5rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+}

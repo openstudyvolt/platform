@@ -20,6 +20,7 @@
     </script>
 
     {{-- Inline style to set the HTML background color based on our theme in app.css --}}
+    <!--suppress CssUnusedSymbol -->
     <style>
         html {
             background-color: oklch(1 0 0);

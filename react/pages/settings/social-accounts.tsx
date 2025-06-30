@@ -115,7 +115,7 @@ export default function SocialAccounts({ connectedAccounts, status }: SocialAcco
                     <HeadingSmall title="Connected accounts" description="Manage your connected social accounts" />
 
                     {connectedAccounts.length === 0 ? (
-                        <div className="text-sm text-muted-foreground">
+                        <div className="text-base text-gray-700">
                             No social accounts connected. You can connect a social account during login.
                         </div>
                     ) : (
@@ -123,7 +123,7 @@ export default function SocialAccounts({ connectedAccounts, status }: SocialAcco
                             {connectedAccounts.map((account) => (
                                 <Card key={account.provider}>
                                     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                        <CardTitle className="text-sm font-medium">
+                                        <CardTitle className="text-base font-medium">
                                             <div className="flex items-center space-x-2">
                                                 {getProviderIcon(account.provider)}
                                                 <span>{getProviderDisplayName(account.provider)}</span>
@@ -140,7 +140,7 @@ export default function SocialAccounts({ connectedAccounts, status }: SocialAcco
                                         </Button>
                                     </CardHeader>
                                     <CardContent>
-                                        <div className="text-xs text-muted-foreground">
+                                        <div className="text-sm text-gray-700">
                                             Connected on {new Date(account.connected_at).toLocaleDateString()}
                                         </div>
                                     </CardContent>
@@ -150,7 +150,9 @@ export default function SocialAccounts({ connectedAccounts, status }: SocialAcco
                     )}
 
                     {status === 'social-account-disconnected' && (
-                        <div className="mt-4 text-sm font-medium text-green-600">Social account disconnected successfully.</div>
+                        <div className="mt-4 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-base text-green-800">
+                            Social account disconnected successfully.
+                        </div>
                     )}
                 </div>
             </SettingsLayout>

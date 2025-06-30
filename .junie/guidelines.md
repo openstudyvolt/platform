@@ -1,110 +1,131 @@
-# .junie/guidelines.md
+# Design System & Theme Guide
 
-## Minimalist & ADHD-Friendly Tailwind Design Spec for OpenStudy Volt
-
-Refined UI guidelines leveraging our Tailwind CSS theme for an intuitive, clean, and distraction-minimized experience—ideal for neurodiverse users.
+This prompt outlines the design system and theming guidelines for the Open Study Volt project. Use it to guide JetBrains Junie AI when updating CSS, configuration files, and components to match our minimalist, ADHD-friendly, scoped Tailwind theme.
 
 ---
 
-### 1. Core Principles
+## 1. Project Context
 
-- **Simplicity First:** Only present essential information and actions per screen.
-- **Clear Hierarchy:** Use size, weight, and spacing to guide focus.
-- **Predictable Patterns:** Consistent component placement and behavior.
-- **Calm Visuals:** Neutral backgrounds, limited accent usage, and ample whitespace reduce a cognitive load.
-- **Progressive Disclosure:** Show advanced options or details on demand.
+* **Framework**: Laravel + React, using Tailwind CSS via PostCSS (or CDN in dev environments).
+* **Goal**: Apply a cohesive, minimalist, ADHD-friendly design system. Prioritize simplicity, clarity, and focus.
 
 ---
 
-### 2. Streamlined Color Usage
+## 2. Core Principles
 
-- **Primary Accent (Focus):** `bg-primary` for one call-to-action per view.
-- **Supportive Accent:** `bg-secondary` for secondary actions only.
-- **Neutral Palette:** Mostly `gray.50`, `gray.100`, and `white` backgrounds.
-- **Text:** `gray.900` for high contrast headings; `gray.700` for body copy.
-- **Feedback:** Single-color alerts—`green.500` for success, `red.500` for errors, `yellow.500` for warnings.
-
-> ✦ **Tip:** Limit palette to 2–3 colors per screen.
+1. **Simplicity**: Only show essential UI elements. Avoid clutter.
+2. **Clear Hierarchy**: Use size, weight, and spacing consistently.
+3. **Calm Visuals**: Neutral backgrounds, limited accents, ample whitespace.
+4. **Predictable Patterns**: Standardized component placement and interaction.
+5. **Progressive Disclosure**: Reveal advanced controls on user demand.
 
 ---
 
-### 3. Typography & Readability
+## 3. Theme Tokens & Variables
 
-| Element | Class       | Size     | Weight          | Spacing     |
-|---------|-------------|----------|-----------------|-------------|
-| H1      | `text-3xl`  | 1.875rem | `font-bold`     | `mb-4`      |
-| H2      | `text-2xl`  | 1.5rem   | `font-semibold` | `mb-3`      |
-| Body    | `text-base` | 1rem     | `font-normal`   | `leading-7` |
-| Small   | `text-sm`   | 0.875rem | `font-normal`   | `leading-6` |
+### 3.1 CSS Variables (PostCSS)
 
-- **Line Length:** Keep 45–75 characters per line.
-- **Whitespace:** `mt-4`/`mb-4` around paragraphs.
+Place in a global CSS file (e.g., `resources/css/theme.css`):
 
----
+```css
+:root {
+  /* Colors */
+  --color-primary: #1D4ED8;
+  --color-primary-dark: #1D4ED8;
+  --color-secondary: #1D4ED8;
+  --color-accent: #93C5FD;
+  --color-background: #F9FAFB;
+  --color-surface: #FFFFFF;
+  --color-text-primary: #111827;
+  --color-text-secondary: #374151;
+  --color-border: #E5E7EB;
+  --color-warning: #FBBF24;
+  --color-error: #EF4444;
+  --color-success: #10B981;
 
-### 4. Component Guidelines
+  /* Typography */
+  --text-h1: 1.875rem;
+  --text-h2: 1.5rem;
+  --text-base: 1rem;
+  --text-sm: 0.875rem;
 
-#### 4.1 Buttons
+  /* Radius & Spacing */
+  --radius-lg: 0.5rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
 
-- **Style:** Full-width on mobile, `rounded-lg`, `py-3`, `font-medium`.
-- **Hierarchy:** Primary (`bg-primary text-white`), Secondary (`border border-gray-300 text-gray-800 bg-white`).
-- **Spacing:** `mt-6` for isolated CTAs; grouped actions use `space-x-4`.
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+}
+```
 
-#### 4.2 Cards & Containers
+### 3.2 Tailwind Config (tailwind.config.js)
 
-- **Shape:** `rounded-lg`, subtle `shadow-sm`.
-- **Padding:** `p-6` inside cards; `gap-6` in grid lists.
-- **Use Cases:** Break content into digestible chunks; limit card to 1–2 key actions.
+Extend the theme to map CSS variables to Tailwind utilities:
 
-#### 4.3 Forms & Inputs
-
-- **Labels:** Floating labels if multiple fields; otherwise `text-sm mb-2` above input.
-- **Inputs:** `px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary`.
-- **Error State:** Icon + red text below field; no inline complexity.
-
-#### 4.4 Navigation
-
-- **Simplify Menus:** Only 3–5 top-level items.
-- **Sticky Header:** Minimal height (`h-16`), logo + one-hamburger menu on mobile.
-
----
-
-### 5. Layout & Spacing
-
-- **Grid:** Use `grid-cols-1` or `grid-cols-2`; avoid more than two columns for clarity.
-- **Section Padding:** `py-12` for major sections; internal gaps `gap-8`.
-- **Container:** `max-w-4xl mx-auto px-4` to center content.
-
----
-
-### 6. ADHD-Friendly UX Patterns
-
-- **Progress Indicators:** Show step progress for multistep flows.
-- **Chunking:** Break long forms/pages into short sections or accordions (`<details>`).
-- **Focus States:** Clear focus outlines (`ring-primary`) to assist navigation.
-- **Minimal Animations:** Subtle fades (`transition-opacity`) only—no flashy motion.
-- **One Task at a Time:** Highlight primary action; grayout or hide others until completion.
-
----
-
-### 7. Example: Minimalist Dashboard Card
-
-```html
-<div class="bg-white rounded-lg shadow-sm p-6 flex flex-col justify-between">
-  <div>
-    <h3 class="text-xl font-semibold text-gray-900 mb-2">Your Progress</h3>
-    <p class="text-base text-gray-700">Complete your next lesson to earn a badge.</p>
-  </div>
-  <button class="mt-6 w-full py-3 font-medium rounded-lg bg-primary text-white">
-    Continue Lesson
-  </button>
-</div>
+```js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        primary: 'var(--color-primary)',
+        'primary-dark': 'var(--color-primary-dark)',
+        secondary: 'var(--color-secondary)',
+        accent: 'var(--color-accent)',
+      },
+      fontSize: {
+        h1: 'var(--text-h1)',
+        h2: 'var(--text-h2)',
+      },
+      borderRadius: {
+        lg: 'var(--radius-lg)',
+        xl: 'var(--radius-xl)',
+        '2xl': 'var(--radius-2xl)',
+      },
+      spacing: {
+        4: 'var(--spacing-4)',
+        6: 'var(--spacing-6)',
+        8: 'var(--spacing-8)',
+      },
+    }
+  }
+};
 ```
 
 ---
 
-### 8. JetBrains Junie Instructions
+## 4. Component Guidelines
 
-- Add this file under `.junie/guidelines.md`.
-- When giving code-generation prompts, reference this file directly.
-- Example: “Junie, update our CTA buttons using the `.junie/guidelines.md` design spec.”
+* **Buttons**: `bg-primary text-white rounded-lg py-3 px-6 shadow-sm hover:shadow-md`
+* **Cards**: `bg-surface p-6 rounded-xl shadow-sm`
+* **Inputs**: `border border-border rounded-lg px-4 py-2 focus:ring-2 focus:ring-primary`
+* **Headings**: `text-h1 font-bold text-text-primary` (H1), `text-h2 font-semibold text-text-primary` (H2)
+* **Body text**: `text-base text-text-secondary`
+
+---
+
+## 5. Usage Examples
+
+```jsx
+// React Component Example
+export default function DashboardCard() {
+  return (
+    <div className="bg-surface p-6 rounded-xl shadow-sm">
+      <h2 className="text-h2 font-semibold text-text-primary mb-4">
+        Your Progress
+      </h2>
+      <p className="text-base text-text-secondary">
+        Complete your next lesson to earn a badge.
+      </p>
+      <button className="mt-6 w-full py-3 font-medium rounded-lg bg-primary text-white">
+        Continue Lesson
+      </button>
+    </div>
+  );
+}
+```
+
+---
+
+*End of Guide*

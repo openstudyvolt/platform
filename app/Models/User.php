@@ -5,6 +5,8 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -102,4 +104,31 @@ class User extends Authenticatable
     }
 
     // Role and permission handling is provided by the HasRoles trait
+
+    public function summaries(): HasMany
+    {
+        return $this->hasMany(Summary::class);
+    }
+
+    public function aiChats(): HasMany
+    {
+        return $this->hasMany(AiChat::class);
+    }
+
+    public function userPoints(): HasMany
+    {
+        return $this->hasMany(UserPoint::class);
+    }
+
+    public function badges(): BelongsToMany
+    {
+        return $this->belongsToMany(Badge::class, 'user_badges')
+            ->withPivot('earned_at', 'metadata')
+            ->withTimestamps();
+    }
+
+    public function getTotalPointsAttribute(): int
+    {
+        return $this->userPoints()->sum('points');
+    }
 }

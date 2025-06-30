@@ -62,11 +62,10 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
 
                     <form onSubmit={submit} className="space-y-6">
                         <div className="grid gap-2">
-                            <Label htmlFor="first_name">First Name</Label>
+                            <Label htmlFor="first_name" className="text-sm mb-2">First Name</Label>
 
                             <Input
                                 id="first_name"
-                                className="mt-1 block w-full"
                                 value={data.first_name}
                                 onChange={(e) => setData('first_name', e.target.value)}
                                 required
@@ -78,11 +77,10 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                         </div>
 
                         <div className="grid gap-2">
-                            <Label htmlFor="middle_name">Middle Name (optional)</Label>
+                            <Label htmlFor="middle_name" className="text-sm mb-2">Middle Name (optional)</Label>
 
                             <Input
                                 id="middle_name"
-                                className="mt-1 block w-full"
                                 value={data.middle_name}
                                 onChange={(e) => setData('middle_name', e.target.value)}
                                 autoComplete="additional-name"
@@ -93,11 +91,10 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                         </div>
 
                         <div className="grid gap-2">
-                            <Label htmlFor="last_name">Last Name</Label>
+                            <Label htmlFor="last_name" className="text-sm mb-2">Last Name</Label>
 
                             <Input
                                 id="last_name"
-                                className="mt-1 block w-full"
                                 value={data.last_name}
                                 onChange={(e) => setData('last_name', e.target.value)}
                                 required
@@ -109,12 +106,11 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                         </div>
 
                         <div className="grid gap-2">
-                            <Label htmlFor="email">Email address</Label>
+                            <Label htmlFor="email" className="text-sm mb-2">Email address</Label>
 
                             <Input
                                 id="email"
                                 type="email"
-                                className="mt-1 block w-full"
                                 value={data.email}
                                 onChange={(e) => setData('email', e.target.value)}
                                 required
@@ -126,12 +122,11 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                         </div>
 
                         <div className="grid gap-2">
-                            <Label htmlFor="phone">Phone Number (E.164 format)</Label>
+                            <Label htmlFor="phone" className="text-sm mb-2">Phone Number (E.164 format)</Label>
 
                             <Input
                                 id="phone"
                                 type="tel"
-                                className="mt-1 block w-full"
                                 value={data.phone}
                                 onChange={(e) => setData('phone', e.target.value)}
                                 autoComplete="tel"
@@ -142,12 +137,11 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                         </div>
 
                         <div className="grid gap-2">
-                            <Label htmlFor="birthday">Birthday</Label>
+                            <Label htmlFor="birthday" className="text-sm mb-2">Birthday</Label>
 
                             <Input
                                 id="birthday"
                                 type="date"
-                                className="mt-1 block w-full"
                                 value={data.birthday}
                                 onChange={(e) => setData('birthday', e.target.value)}
                             />
@@ -157,20 +151,20 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
 
                         {mustVerifyEmail && auth.user.email_verified_at === null && (
                             <div>
-                                <p className="-mt-4 text-sm text-muted-foreground">
+                                <p className="-mt-4 text-base text-gray-700">
                                     Your email address is unverified.{' '}
                                     <Link
                                         href={route('verification.send')}
                                         method="post"
                                         as="button"
-                                        className="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
+                                        className="text-primary underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
                                     >
                                         Click here to resend the verification email.
                                     </Link>
                                 </p>
 
                                 {status === 'verification-link-sent' && (
-                                    <div className="mt-2 text-sm font-medium text-green-600">
+                                    <div className="mt-2 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-base text-green-800">
                                         A new verification link has been sent to your email address.
                                     </div>
                                 )}
@@ -187,7 +181,7 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                 leave="transition ease-in-out"
                                 leaveTo="opacity-0"
                             >
-                                <p className="text-sm text-neutral-600">Saved</p>
+                                <p className="text-base text-gray-700">Saved</p>
                             </Transition>
                         </div>
                     </form>

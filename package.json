@@ -23,6 +23,7 @@
         "typescript-eslint": "^8.23.0"
     },
     "dependencies": {
+        "@auth0/auth0-react": "^2.2.4",
         "@headlessui/react": "^2.2.0",
         "@inertiajs/react": "^2.0.0",
         "@radix-ui/react-avatar": "^1.1.3",
@@ -46,16 +47,25 @@
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "concurrently": "^9.0.1",
+        "framer-motion": "^11.11.17",
         "globals": "^15.14.0",
+        "i18next": "^24.0.5",
         "laravel-vite-plugin": "^1.0",
         "lucide-react": "^0.475.0",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
+        "react-hook-form": "^7.54.0",
+        "react-i18next": "^15.1.2",
+        "react-router-dom": "^7.1.1",
+        "recharts": "^2.15.0",
+        "swr": "^2.3.0",
         "tailwind-merge": "^3.0.1",
         "tailwindcss": "^4.0.0",
         "tailwindcss-animate": "^1.0.7",
         "typescript": "^5.7.2",
-        "vite": "^6.0"
+        "vite": "^6.0",
+        "zod": "^3.24.1",
+        "zustand": "^5.0.2"
     },
     "optionalDependencies": {
         "@rollup/rollup-linux-x64-gnu": "4.9.5",

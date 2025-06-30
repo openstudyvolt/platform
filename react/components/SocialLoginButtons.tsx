@@ -9,15 +9,15 @@ export default function SocialLoginButtons({ className = '' }: SocialLoginButton
                 <div className="absolute inset-0 flex items-center">
                     <div className="w-full border-t border-gray-300 dark:border-gray-700"></div>
                 </div>
-                <div className="relative flex justify-center text-sm">
-                    <span className="bg-white px-2 text-gray-500 dark:bg-gray-900 dark:text-gray-400">Or continue with</span>
+                <div className="relative flex justify-center text-base">
+                    <span className="bg-white px-2 text-gray-700 dark:bg-gray-900 dark:text-gray-400">Or continue with</span>
                 </div>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
                 <a
                     href="/auth/google/redirect"
-                    className="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus-visible:ring-transparent"
+                    className="flex w-full items-center justify-center gap-3 rounded-lg bg-white px-3 py-2 text-base font-semibold text-gray-900 shadow-sm ring-1 ring-gray-300 ring-inset hover:bg-gray-50 focus-visible:ring-transparent"
                 >
                     <svg className="h-5 w-5" aria-hidden="true" viewBox="0 0 24 24">
                         <path
@@ -42,7 +42,7 @@ export default function SocialLoginButtons({ className = '' }: SocialLoginButton
 
                 <a
                     href="/auth/facebook/redirect"
-                    className="flex w-full items-center justify-center gap-3 rounded-md bg-[#1877F2] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#0C63D4] focus-visible:ring-transparent"
+                    className="flex w-full items-center justify-center gap-3 rounded-lg bg-[#1877F2] px-3 py-2 text-base font-semibold text-white shadow-sm hover:bg-[#0C63D4] focus-visible:ring-transparent"
                 >
                     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path
@@ -56,7 +56,7 @@ export default function SocialLoginButtons({ className = '' }: SocialLoginButton
 
                 <a
                     href="/auth/twitter/redirect"
-                    className="flex w-full items-center justify-center gap-3 rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:ring-transparent"
+                    className="flex w-full items-center justify-center gap-3 rounded-lg bg-black px-3 py-2 text-base font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:ring-transparent"
                 >
                     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z" />
@@ -66,7 +66,7 @@ export default function SocialLoginButtons({ className = '' }: SocialLoginButton
 
                 <a
                     href="/auth/linkedin-openid/redirect"
-                    className="flex w-full items-center justify-center gap-3 rounded-md bg-[#0A66C2] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#004182] focus-visible:ring-transparent"
+                    className="flex w-full items-center justify-center gap-3 rounded-lg bg-[#0A66C2] px-3 py-2 text-base font-semibold text-white shadow-sm hover:bg-[#004182] focus-visible:ring-transparent"
                 >
                     <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
