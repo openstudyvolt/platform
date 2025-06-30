@@ -1,0 +1,77 @@
+{
+    "./react/app.tsx": {
+        "file": "app.js",
+        "src": "./react/app.tsx",
+        "isEntry": true
+    },
+    "./react/pages/Admin.tsx": {
+        "file": "Admin.js",
+        "src": "./react/pages/Admin.tsx",
+        "isEntry": true
+    },
+    "./react/pages/StudyAssistant.tsx": {
+        "file": "StudyAssistant.js",
+        "src": "./react/pages/StudyAssistant.tsx",
+        "isEntry": true
+    },
+    "./react/pages/dashboard.tsx": {
+        "file": "dashboard.js",
+        "src": "./react/pages/dashboard.tsx",
+        "isEntry": true
+    },
+    "./react/pages/welcome.tsx": {
+        "file": "welcome.js",
+        "src": "./react/pages/welcome.tsx",
+        "isEntry": true
+    },
+    "./react/pages/auth/confirm-password.tsx": {
+        "file": "confirm-password.js",
+        "src": "./react/pages/auth/confirm-password.tsx",
+        "isEntry": true
+    },
+    "./react/pages/auth/forgot-password.tsx": {
+        "file": "forgot-password.js",
+        "src": "./react/pages/auth/forgot-password.tsx",
+        "isEntry": true
+    },
+    "./react/pages/auth/login.tsx": {
+        "file": "login.js",
+        "src": "./react/pages/auth/login.tsx",
+        "isEntry": true
+    },
+    "./react/pages/auth/register.tsx": {
+        "file": "register.js",
+        "src": "./react/pages/auth/register.tsx",
+        "isEntry": true
+    },
+    "./react/pages/auth/reset-password.tsx": {
+        "file": "reset-password.js",
+        "src": "./react/pages/auth/reset-password.tsx",
+        "isEntry": true
+    },
+    "./react/pages/auth/verify-email.tsx": {
+        "file": "verify-email.js",
+        "src": "./react/pages/auth/verify-email.tsx",
+        "isEntry": true
+    },
+    "./react/pages/settings/appearance.tsx": {
+        "file": "appearance.js",
+        "src": "./react/pages/settings/appearance.tsx",
+        "isEntry": true
+    },
+    "./react/pages/settings/password.tsx": {
+        "file": "password.js",
+        "src": "./react/pages/settings/password.tsx",
+        "isEntry": true
+    },
+    "./react/pages/settings/profile.tsx": {
+        "file": "profile.js",
+        "src": "./react/pages/settings/profile.tsx",
+        "isEntry": true
+    },
+    "./react/pages/settings/social-accounts.tsx": {
+        "file": "social-accounts.js",
+        "src": "./react/pages/settings/social-accounts.tsx",
+        "isEntry": true
+    }
+}
