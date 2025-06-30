@@ -18,3 +18,17 @@ test('new users can register', function () {
     $this->assertAuthenticated();
     $response->assertRedirect(route('dashboard', absolute: false));
 });
+
+test('registration fails with invalid data', function () {
+    $response = $this->from('/register')->post('/register', [
+        'first_name' => '',
+        'last_name' => '',
+        'email' => 'invalid-email',
+        'password' => 'password',
+        'password_confirmation' => 'wrong',
+    ]);
+
+    $response->assertRedirect('/register');
+    $response->assertSessionHasErrors(['first_name', 'last_name', 'email', 'password']);
+    $this->assertGuest();
+});
