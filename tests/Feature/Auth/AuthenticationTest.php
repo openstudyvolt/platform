@@ -39,3 +39,18 @@ test('users can logout', function () {
     $this->assertGuest();
     $response->assertRedirect('/');
 });
+
+test('remember me sets recaller cookie', function () {
+    $user = User::factory()->create();
+
+    $response = $this->post('/login', [
+        'email' => $user->email,
+        'password' => 'password',
+        'remember' => true,
+    ]);
+
+    $response->assertRedirect(route('dashboard', absolute: false));
+
+    $recallerName = \Illuminate\Support\Facades\Auth::getRecallerName();
+    $response->assertCookie($recallerName);
+});
