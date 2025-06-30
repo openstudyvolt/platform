@@ -27,6 +27,8 @@ project uses Laravel 12 with Inertia and React 19. Format code with Prettier and
 keep tests in Pest.
 
 - **Forgot Password Flow**: users can request a reset link and choose a new password.
+  - As a returning learner who forgets their password,
+    I want to receive a reset link via email so I can create a new password and regain access.
 
 ### Codex Prompt 1: Email Registration
 
