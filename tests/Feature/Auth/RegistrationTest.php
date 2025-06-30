@@ -32,4 +32,3 @@ test('registration fails with invalid data', function () {
     $response->assertSessionHasErrors(['first_name', 'last_name', 'email', 'password']);
     $this->assertGuest();
 });
-
